@@ -30,6 +30,7 @@ const checkWinner = () => {
     if (topLeft && topLeft === topMiddle && topLeft === topRight) {
         gameIsLive = !gameIsLive;
         winner = topLeft;
+        document.querySelector(".text").innerHTML = topLeft + " is winner!";
     } else if (middleLeft && middleLeft === middleMiddle && middleLeft === middleRight) {
         gameIsLive = !gameIsLive;
         document.querySelector(".text").innerHTML = topLeft + " is winner!";
@@ -67,15 +68,14 @@ const handleCellClick = (e) => {
             location.classList.add("rotate");
             e.target.classList.add("x")
             xIsNext = !xIsNext;
-            checkWinner();
             document.querySelector(".text").innerHTML = "O is next!";            
         } else {
             location.textContent = "o";
             e.target.classList.add("o");
             xIsNext = !xIsNext;
-            checkWinner(); 
             document.querySelector(".text").innerHTML = "X is next!";       
         }
+        checkWinner();
     }
 }
 

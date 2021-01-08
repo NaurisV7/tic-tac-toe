@@ -29,28 +29,28 @@ const checkWinner = () => {
     
     if (topLeft && topLeft === topMiddle && topLeft === topRight) {
         gameIsLive = !gameIsLive;
-        winner = topLeft;
+        document.querySelector(".text").innerHTML = topLeft + " is winner!";
     } else if (middleLeft && middleLeft === middleMiddle && middleLeft === middleRight) {
         gameIsLive = !gameIsLive;
-        document.querySelector(".text").innerHTML = topLeft + " is winner!";
+        document.querySelector(".text").innerHTML = middleLeft + " is winner!";
     } else if (bottomLeft && bottomLeft === bottomMiddle && bottomLeft === bottomRight) {
         gameIsLive = !gameIsLive;
-        document.querySelector(".text").innerHTML = topLeft + " is winner!";
+        document.querySelector(".text").innerHTML = bottomLeft + " is winner!";
     } else if (topLeft && topLeft === middleLeft && topLeft === bottomLeft) {
         gameIsLive = !gameIsLive;
         document.querySelector(".text").innerHTML = topLeft + " is winner!";
     } else if (topMiddle && topMiddle === middleMiddle && topMiddle === bottomMiddle) {
         gameIsLive = !gameIsLive;
-        document.querySelector(".text").innerHTML = topLeft + " is winner!";
+        document.querySelector(".text").innerHTML = topMiddle + " is winner!";
     } else if (topRight && topRight === middleRight && topRight === bottomRight) {
         gameIsLive = !gameIsLive;
-        document.querySelector(".text").innerHTML = topLeft + " is winner!";
+        document.querySelector(".text").innerHTML = topRight + " is winner!";
     } else if (topLeft && topLeft === middleMiddle && topLeft === bottomRight) {
         gameIsLive = !gameIsLive;
         document.querySelector(".text").innerHTML = topLeft + " is winner!";
     } else if (topRight && topRight === middleMiddle && topRight === bottomLeft) {
         gameIsLive = !gameIsLive;
-        document.querySelector(".text").innerHTML = topLeft + " is winner!";
+        document.querySelector(".text").innerHTML = topRight + " is winner!";
     }
 }
 const handleCellClick = (e) => {
@@ -66,16 +66,15 @@ const handleCellClick = (e) => {
             location.textContent = "+";
             location.classList.add("rotate");
             e.target.classList.add("x")
-            xIsNext = !xIsNext;
-            checkWinner();
+            xIsNext = !xIsNext;            
             document.querySelector(".text").innerHTML = "O is next!";            
         } else {
             location.textContent = "o";
             e.target.classList.add("o");
-            xIsNext = !xIsNext;
-            checkWinner(); 
+            xIsNext = !xIsNext;            
             document.querySelector(".text").innerHTML = "X is next!";       
         }
+        checkWinner();
     }
 }
 
